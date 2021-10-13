@@ -6,7 +6,7 @@ end entity;
 
 architecture gate of mux_41_tb is
 
-component mux_41_s is
+component mux_41_d is
 port(
 	s: in bit_vector(1 downto 0);
 	d: in bit_vector(3 downto 0);
@@ -20,7 +20,7 @@ signal out1: bit;
 
 begin
 
-multi: mux_41_s port map (in1,in2,out1);
+multi: mux_41_d port map (in1,in2,out1);
 
 process
 begin
@@ -29,15 +29,12 @@ in2 <= "1001";
 in1 <= "00";
 wait for 10 ns;
 
-in2 <= "1001";
 in1 <= "01";
 wait for 10 ns;
 
-in2 <= "1001";
 in1 <= "10";
 wait for 10 ns;
 
-in2 <= "1001";
 in1 <= "11";
 wait for 10 ns;
 
@@ -45,18 +42,40 @@ in2 <= "0110";
 in1 <= "00";
 wait for 10 ns;
 
-in2 <= "0110";
 in1 <= "01";
 wait for 10 ns;
 
-in2 <= "0110";
 in1 <= "10";
 wait for 10 ns;
 
-in2 <= "0110";
 in1 <= "11";
 wait for 10 ns;
 
+in2 <= "0000";
+in1 <= "00";
+wait for 10 ns;
+
+in1 <= "01";
+wait for 10 ns;
+
+in1 <= "10";
+wait for 10 ns;
+
+in1 <= "11";
+wait for 10 ns;
+
+in2 <= "1111";
+in1 <= "00";
+wait for 10 ns;
+
+in1 <= "01";
+wait for 10 ns;
+
+in1 <= "10";
+wait for 10 ns;
+
+in1 <= "11";
+wait for 10 ns;
 end process;
 
 end architecture;
