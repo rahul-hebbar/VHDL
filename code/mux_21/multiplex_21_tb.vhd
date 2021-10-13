@@ -6,7 +6,7 @@ end entity;
 
 architecture gate of multiplex_21_tb is
 
-component multiplex_21_s is
+component multiplex_21_b is
 port(
 	s: in bit;
 	d: in bit_vector(1 downto 0);
@@ -19,7 +19,7 @@ signal in2: bit_vector(1 downto 0);
 
 begin
 
-multi: multiplex_21_s port map (in1,in2,out1);
+multi: multiplex_21_b port map (in1,in2,out1);
 
 process
 begin
@@ -28,7 +28,6 @@ in2 <= "01";
 in1 <= '0';
 wait for 10 ns;
 
-in2 <= "01";
 in1 <= '1';
 wait for 10 ns;
 
@@ -36,7 +35,20 @@ in2 <= "10";
 in1 <= '0';
 wait for 10 ns;
 
-in2 <= "10";
+in1 <= '1';
+wait for 10 ns;
+
+in2 <= "00";
+in1 <= '0';
+wait for 10 ns;
+
+in1 <= '1';
+wait for 10 ns;
+
+in2 <= "11";
+in1 <= '0';
+wait for 10 ns;
+
 in1 <= '1';
 wait for 10 ns;
 
