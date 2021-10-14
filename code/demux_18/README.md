@@ -1,3 +1,3 @@
-## 8:1 MUX implementation
+## 1:8 DEMUX implementation
 
-This is the Implementation of ***8:1 mux*** usign ***two 4:1 mux*** and ***one 2:1 mux*** in VHDL
+This is the Implementation of ***1:8 demux*** usign ***two 1:4 demux*** and ***one 1:2 demux*** in VHDL
