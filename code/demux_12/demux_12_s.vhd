@@ -1,14 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity demux_21_s is
+entity demux_12_s is
 port (
 s,d : in bit;
 y : out bit_vector(1 downto 0)
 );
 end entity;
 
-architecture gate of demux_21_s is
+architecture gate of demux_12_s is
 
 component and_gate is
 port(a,b: in bit; o: out bit);

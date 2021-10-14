@@ -1,12 +1,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity demux_21_tb is
+entity demux_12_tb is
 end entity;
 
-architecture gate of demux_21_tb is
+architecture gate of demux_12_tb is
 
-component demux_21_s is
+component demux_12_s is
 port (
 s,d : in bit;
 y : out bit_vector(1 downto 0)
@@ -18,7 +18,7 @@ signal out1: bit_vector(1 downto 0);
 
 begin
 
-demux_21: demux_21_s port map (in1,in2,out1);
+demux_21: demux_12_s port map (in1,in2,out1);
 
 process
 begin
