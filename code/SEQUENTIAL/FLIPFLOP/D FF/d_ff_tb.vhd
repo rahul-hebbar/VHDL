@@ -6,44 +6,38 @@ end entity ; -- d_ff_tb
 
 architecture gate of d_ff_tb is
 
-component d_ff_sync is
+component d_ff_async is
   port (
 	d,clk,set,clr: in std_logic;
 	q,q_c: inout std_logic
   ) ;
 end component ;
 
-signal in1,in2,in3,in4: std_logic := '0';
-signal out1,out2 : std_logic;
+signal d1,clk1,set1,clr1: std_logic := '0';
+signal q1,q_c1: std_logic;
 
 begin
 
-DUT: d_ff_sync port map (in1,in2,in3,in4,out1,out2);
+DUT: d_ff_async port map (d1,clk1,set1,clr1,q1,q_c1);
 
-in2 <= not in2 after 5 ns;
+clk1 <= not clk1 after 5 ns;
 
 process
 begin
 
-in3 <= '0';
-in4 <= '1';
+set1 <= '1';
 wait for 10 ns;
 
-in4 <= '0';
-in1 <= '1';
+set1 <= '0';
+clr1 <= '1';
 wait for 10 ns;
 
-in1 <= '0';
+clr1 <= '0';
+d1 <= '1';
 wait for 10 ns;
 
-in3 <= '1';
-wait for 20 ns;
-
-in3 <= '0';
-in4 <= '1';
-wait for 20 ns;
-
-in4 <= '0';
+d1 <= '0';
+wait for 10 ns;
 
 end process;
 end architecture ; -- gate
